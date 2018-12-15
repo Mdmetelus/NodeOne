@@ -1,10 +1,10 @@
 const http = require('http');
 
 const server = http.createServer((req, res) =>{
-    res.end(helloWorld\n');
+    res.end('Hello World\n');
 });
 
-server.isten(4242, () => {
-    console.log('servier is running...');
-    console.log('oh no he didn\'t just make a simple server...!?!?');
+server.listen(4242, () => {
+    console.log('Servier is Running...');
+    console.log('Oh no he didn\'t just make a simple server...!?!?');
 });
