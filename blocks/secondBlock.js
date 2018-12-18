@@ -41,4 +41,35 @@ fooBlockchain.addBlock('seven');
 
 console.log(fooBlockchain);
 
+//node output Bellow
+// └─ $ ▶ node secondBlock.js
+// Blockchain {
+//   chain:
+//    [ Block { data: 'gen-data', hash: 'gen-hash', lastHash: ' gen-lastHash' },
+//      Block { data: 'one', hash: 'onegen-hash*', lastHash: 'gen-hash' },
+//      Block {
+//        data: 'two',
+//        hash: 'twoonegen-hash**',
+//        lastHash: 'onegen-hash*' },
+//      Block {
+//        data: 'three',
+//        hash: 'threetwoonegen-hash***',
+//        lastHash: 'twoonegen-hash**' },
+//      Block {
+//        data: 'monkey',
+//        hash: 'monkeythreetwoonegen-hash****',
+//        lastHash: 'threetwoonegen-hash***' },
+//      Block {
+//        data: 'banana',
+//        hash: 'bananamonkeythreetwoonegen-hash*****',
+//        lastHash: 'monkeythreetwoonegen-hash****' },
+//      Block {
+//        data: 'six',
+//        hash: 'sixbananamonkeythreetwoonegen-hash******',
+//        lastHash: 'bananamonkeythreetwoonegen-hash*****' },
+//      Block {
+//        data: 'seven',
+//        hash: 'sevensixbananamonkeythreetwoonegen-hash*******',
+//        lastHash: 'sixbananamonkeythreetwoonegen-hash******' } ] }
+
 
