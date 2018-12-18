@@ -1,3 +1,7 @@
+const lightningHash = (data) => {
+    return data + '*';
+}
+
 class Block {
     constructor(data, hash, lastHash) {
         this.data = data;
@@ -7,5 +11,6 @@ class Block {
 }
 
 
-const fooBlock = new Block('foo-data','foo-hash', 'foo-lastHash');
-console.log(fooBlock);
+// const fooBlock = new Block('foo-data','foo-hash', 'foo-lastHash');
+// console.log(fooBlock);
+
