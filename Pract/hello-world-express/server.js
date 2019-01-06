@@ -27,7 +27,7 @@ server.get('/hobbits', (req,res) => {
 //status code 201 belongs to only  post, and creating new date successfully.
 // server.post is the CREATE DATA one
 server.post(`/hobbits`, (req, res) => {
-    res.status(201).json()
+    res.status(201).json();
 });
 
 
