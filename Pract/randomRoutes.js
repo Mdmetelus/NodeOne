@@ -29,3 +29,29 @@ server.delete(`hobbits/:id`, (req, res) => {
 //     "operation": "DELETE for hobbits with id 12"
 // }
 
+
+// ++++++++++++++++++++++++++++++++++++
+//  really good Query string example!
+// ++++++++++++++++++++++++++++++++++++++
+server.get('hobbits', (req,res) => {
+    // query string parameters get added to req.query
+    const sortField = req.query.sortby 
+
+    const hobbits = [{},{}];
+    //sorting and display response logic can go here but before the res respose part.
+    //apply the sort
+    const response = hobbits.sort((a,b)=>{
+        a[sortField] < b[sortField] ? -1 : 1
+    });
+    res.status(200).json(response);
+})
+
+// Request.BODY EXAMPLE:
+
+let nextId = 3;
+//  Modify the post endpoint like so:
+server.post('hobbits', (req, res)=> {
+    const hobbits = req.body;
+    hobbits.id = nextId++;
+    hobbits.push(hobbits); 
+});
