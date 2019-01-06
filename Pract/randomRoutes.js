@@ -47,6 +47,7 @@ server.get('hobbits', (req,res) => {
 })
 
 // Request.BODY EXAMPLE:
+//req.body example:
 
 let nextId = 3;
 //  Modify the post endpoint like so:
