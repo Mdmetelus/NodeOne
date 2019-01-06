@@ -38,16 +38,16 @@ server.post(`/hobbits`, (req, res) => {
 
 
 //server.put is the UPDATE DATA option.
-server.put('hobbits', (req,res) => {
+server.put('/hobbits', (req,res) => {
 
-
-    res.status(200).json({ url: '/hobbits', operation: 'PUT'})
+    res.status(200).json({ url: '/hobbits', operation: 'PUT'});
 }); // Put refers to update, so any time we want to change the data we use it.
 
 //204 status code lets us know something has been deleted. we don't need any
+//you also need a terminating process. so instead of using res.status(204) we sould us res.sendStatus(204)
 // server.delete is the DELETE/DESTROY DATA one.
 server.delete('/hobbits', (req,res) => {
-    res.status(204);
+    res.sendStatus(204);
 }); // DELETE/DESTROY DATA 
 
 
