@@ -20,19 +20,31 @@ server.get('/', (req, res) => {
 // const serveer and the server.get are the express way of doing the const server  using node.js, it changes to an express server from an http server.
 // server.get is the  READ DATA one
 server.get('/hobbits', (req,res) => {
+    console.log(req.query);
+    //query string parameters get added to req.query
+    const sortField = req.query.sortby || 'id';
+    const hobbits = [{ id: 1, name:'Samwise Gamgee' },{ id: 3, name:'Bilbo Baggins' },{ id: 2, name: 'Frodo Baggins' }, ];
 
+    //apply the sorting
+    const response = hobbits.sort((a, b) => (a[sortField] < b[sortField] ? -1 : 1)
+    );
 
-    res.status(200).send('Welcome to Hobbiton');
+    res.status(200).json(response);
+    // res.status(200).send('Welcome to Hobbiton');
 });
 
 
-
+let nextId = 3;
 //status code 201 belongs to only  post, and creating new date successfully.
 // server.post is the CREATE DATA one
 server.post(`/hobbits`, (req, res) => {
+    const hobbits = req.body;
+    hobbits.id == nextId++
 
+    hobbits.push(hobbit);
 
-    res.status(201).json({ url: '/hobbits', operation: 'POST'});
+    res.status(201).json(hobbits);
+    // res.status(201).json({ url: '/hobbits', operation: 'POST'});
 });
 
 
@@ -46,8 +58,17 @@ server.put('/hobbits', (req,res) => {
 //204 status code lets us know something has been deleted. we don't need any
 //you also need a terminating process. so instead of using res.status(204) we sould us res.sendStatus(204)
 // server.delete is the DELETE/DESTROY DATA one.
-server.delete('/hobbits', (req,res) => {
-    res.sendStatus(204);
+server.delete('/hobbits/:id', (req,res) => {
+    const id = req.params.id;
+    // or we could destructure it to look like: const { id } = req.params;
+    console.log(req.params.id);
+    console.log(req.params);
+    res.status(204).json({ 
+        url: `/hobbits/:${id}`, 
+        operation: `DELETE for hobbit with id ${id}`,
+    });
+
+    // res.sendStatus(204);
 }); // DELETE/DESTROY DATA 
 
 
