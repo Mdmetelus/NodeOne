@@ -1,2 +1,2 @@
 # NodeOne
-Random snippets  of node js code( and practice)
+Random snippets of node js (and practice)
