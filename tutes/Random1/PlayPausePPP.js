@@ -28,3 +28,19 @@ const person1 = {
 // console.log(person);
 // person.greet();
 person1.goodBye();
+
+const hobbies = ['Coding','Playing', 'Pausing', 'PPPPPPP','Sports','Cooking'];
+
+for (let hobby of hobbies) {
+    console.log(hobby);
+}
+
+for (let children of hobbies) {
+    console.log(children.length + ' ' + children)
+}
+
+console.log(hobbies.map(hobby => {
+    return 'Hobby: ' + hobby;
+}));
+console.log('original list: \n');
+console.log( hobbies);
