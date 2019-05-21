@@ -1,0 +1,21 @@
+{
+  "name": "server3",
+  "version": "1.0.0",
+  "description": "server assignment practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NodeOne"
+  },
+  "author": "Mr. Metelus",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
