@@ -4,6 +4,8 @@ const fs = require('fs');
 
 const server = http.createServer((req,res) => {
     const url = req.url;
+    const method = req.method;
+
     if (url === '/') {
         res.setHeader('Content-Type', 'text/html');
         res.write('<html>');
@@ -28,13 +30,16 @@ const server = http.createServer((req,res) => {
             const parsedBody = Buffer.concat(body).toString();
             console.log(parsedBody);
             const message = parsedBody.split('=')[1];
-            fs.writeFileSync('message.txt', message);
+            fs.writeFile('message.txt', message, (error) => {
+                
+                res.statusCode = 302;
+                res.setHeader('Location', '/');
+                return res.end();
+            });
+            //writeFileSync ois the version that blocks any async code.
+            //use writeFile to allow async code to continue to run other stuff.
             
-            res.statusCode = 302;
-            res.setHeader('Location', '/');
-            return res.end();
         });
-        // fs.writeFileSync('message.txt', 'DUMMY DATA'); moved to asyc
         // res.writeHead(302, {});
 
 
