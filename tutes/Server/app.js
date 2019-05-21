@@ -9,7 +9,7 @@ const server = http.createServer((req,res) => {
     res.write('<html>');
     res.write('<head><title>My New Page</title></head>');
 
-    res.write('<Body><h1>Hello from node.js Server!</h1></body>');
+    res.write('<body><h1>Hello from node.js Server!</h1></body>');
 
     res.write('</html>');
     res.end();
