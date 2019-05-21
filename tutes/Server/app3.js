@@ -24,18 +24,18 @@ const server = http.createServer((req,res) => {
             body.push(chunk);
         });// listening for the data event
 
-        req.on('end', () => {
+        return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             console.log(parsedBody);
             const message = parsedBody.split('=')[1];
             fs.writeFileSync('message.txt', message);
-
+            
+            res.statusCode = 302;
+            res.setHeader('Location', '/');
+            return res.end();
         });
         // fs.writeFileSync('message.txt', 'DUMMY DATA'); moved to asyc
         // res.writeHead(302, {});
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
 
 
 
