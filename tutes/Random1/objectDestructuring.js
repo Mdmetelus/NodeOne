@@ -20,3 +20,6 @@ const printName = ({name}) => {
 }
 
 printName(person);
+
+const { name, age } = person;
+console.log(name, age);
