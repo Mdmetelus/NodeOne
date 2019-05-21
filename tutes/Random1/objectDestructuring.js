@@ -8,3 +8,15 @@ const person = {
         // console.log('Goodbye ' + this.name + '!');
     // }
 };
+// const printName = (personData) => {
+//     console.log(personData.name);
+// }
+
+// printName(person);
+
+// destructured version
+const printName = ({name}) => {
+    console.log(name);
+}
+
+printName(person);
