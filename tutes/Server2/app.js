@@ -4,16 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+const adminRoutes = require('./routes/admin');
 
 app.use(bodyParser.urlencoded());// parses bpdes sent through forms
 
+app.use(adminRoutes);
 
-
-app.use('/add-product1', (req, res, next) => {
-    console.log('In another Middleware!');
-    res.send('<html><body><form action="/product" method="POST"><input type="text" name="title"><button type="submit"> Add Product 1 </button></form></body></html>'); 
-    
-});
 
 app.use('/add-product', (req, res, next) => {
     console.log('In another Middleware!');
@@ -21,11 +17,6 @@ app.use('/add-product', (req, res, next) => {
     
 });
 
-app.get('/product', (req, res, next) => {
-    console.log(req.body);
-    
-    res.redirect('/');
-});
 
 app.post('/product', (req, res, next) => {
     console.log(req.body);
