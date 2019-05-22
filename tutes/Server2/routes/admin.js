@@ -15,4 +15,4 @@ router.post('/product', (req, res, next) => {
     res.redirect('/');
 });
 
-module.express = router;
+module.exports = router;
