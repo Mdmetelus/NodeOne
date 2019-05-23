@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/add-product1', (req, res, next) => {
     console.log('In another Middleware!');
-    res.send('<html><body><form action="/product" method="POST"><input type="text" name="title"><button type="submit"> Add Product 1 </button></form></body></html>'); 
+    res.send('<html><body><form action="/add-product" method="POST"><input type="text" name="title"><button type="submit"> Add Product 1 </button></form></body></html>'); 
     
 });
 
